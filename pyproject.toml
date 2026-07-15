@@ -1,0 +1,20 @@
+[project]
+name = "lookmaxeng"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "winrt-windows-foundation-collections",
+    "winrt-windows-foundation",
+    "winrt-windows-globalization",
+    "winrt-windows-graphics-imaging",
+    "winrt-windows-media-ocr",
+    "winrt-windows-storage-streams",
+    "Pillow",
+    "sqlalchemy",
+    "pydantic",
+    "pydantic-settings",
+    "fastapi",
+    "pynput>=1.8.2",
+]
