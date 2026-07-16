@@ -3,8 +3,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 IMAGE_DIR = BASE_DIR / "media"
-WIDTH: int = 300
-HEIGHT: int = 100
+WIDTH: int = 400
+HEIGHT: int = 200
 
 class Settings(BaseSettings):
     SettingsConfigDict(env_file=BASE_DIR / '.env')

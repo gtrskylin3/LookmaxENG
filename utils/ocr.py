@@ -28,7 +28,7 @@ def recognize_pil_sync(img, lang='en') -> OcrResult:
 def parse_words(data: OcrResult):
     return [
         Word(
-            text=''.join(i for i in w.text if i.isalpha()),
+            text=''.join(i for i in w.text.replace('_', ' ').capitalize() if i.isalpha() or i == ' '),
             x=w.bounding_rect.x,
             y=w.bounding_rect.y,
             width=w.bounding_rect.width,
