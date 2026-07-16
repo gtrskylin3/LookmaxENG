@@ -50,8 +50,12 @@ def ocr_main():
             print(response.content, '\n=================================\n', word)
 
 def start_hotkeys():
+    keys = ['q', 'й', 'Q', 'Й']
+    
+    # Автоматически собираем словарь хоткеев
     hotkeys_map = {
-        '<shift>+<alt>+q': lambda: Thread(target=ocr_main, daemon=True).start()
+        f'<shift>+<alt>+{k}': lambda: Thread(target=ocr_main, daemon=True).start()
+        for k in keys
     }
     with keyboard.GlobalHotKeys(hotkeys_map) as listener:
         listener.join()
