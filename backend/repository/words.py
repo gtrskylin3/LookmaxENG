@@ -5,12 +5,12 @@ from backend.schemas.words import CreateWord, UpdateWord
 
 class WordsRepository:
     @staticmethod
-    async def create(session: AsyncSession, data: CreateWord) -> Words:
+    async def create(session: AsyncSession, data: CreateWord) -> Words | None:
         stmt = select(Words).where(Words.context == data.context, Words.translate == data.translate, Words.word == data.word)
         result = await session.execute(stmt)
         old_word = result.scalar_one_or_none()
         if old_word:
-            return old_word
+            return None
         new_word = Words(**data.model_dump())
         session.add(new_word)
         await session.commit()

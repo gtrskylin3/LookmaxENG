@@ -26,4 +26,5 @@ dependencies = [
     "python-multipart",
     "uvicorn",
     "requests>=2.34.2",
+    "pywebview>=6.2.1",
 ]

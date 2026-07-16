@@ -37,16 +37,19 @@ async def update_word(session: SessionDep, id: int, update_scheme: UpdateWord) -
     
     
 @router.post('/export_anki')
-async def export_words(session: SessionDep, background_tasks: BackgroundTasks):
+async def export_words(session: SessionDep):
     words = await word_service.get_all_words(session)
     words_list = [
         Word.model_validate(w).model_dump() for w in words
     ]
     loop = get_running_loop()
     output_path = await loop.run_in_executor(None, export_anki, words_list)
-    background_tasks.append(remove_file(str(output_path)))
+    cleanup_task = BackgroundTasks(remove_file, str(output_path))
     return FileResponse(
         output_path,
         filename="anki_cards.apkg", 
-        media_type="application/octet-stream"
+        media_type="application/octet-stream",
+        background=cleanup_task
     )
+
+

@@ -1,8 +1,9 @@
 # LookmaxENG
-
+![image](/image.png)
 LookmaxENG is a lightweight Windows application for learning English while playing games or reading text on the screen.
 
 The application captures a small region around the mouse cursor, recognizes the text using the native Windows OCR engine, determines the word under the cursor, and will later provide translation, history, and Anki integration.
+
 
 ## Features
 
@@ -89,12 +90,6 @@ git clone https://github.com/yourusername/lookmaxeng.git
 cd lookmaxeng
 
 uv sync
-```
-
-or
-
-```bash
-pip install -r requirements.txt
 ```
 
 ## Running

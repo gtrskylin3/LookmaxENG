@@ -50,7 +50,7 @@ def ocr_main():
             print(response.content, '\n=================================\n', word)
 
 def start_hotkeys():
-    keys = ['q', 'й', 'Q', 'Й']
+    keys = ['q', 'й']
     
     # Автоматически собираем словарь хоткеев
     hotkeys_map = {
