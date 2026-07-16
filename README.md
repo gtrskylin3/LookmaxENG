@@ -89,15 +89,15 @@ git clone https://github.com/yourusername/lookmaxeng.git
 
 cd lookmaxeng
 
-uv sync
+./run
 ```
 
 ## Running
-
-```bash
-python main.py
+   
+```bash  
+./run
 ```
-
+or CLICK ON RUN.bat
 Default hotkey:
 
 ```text
