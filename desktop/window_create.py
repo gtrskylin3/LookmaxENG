@@ -11,6 +11,6 @@ def create_window():
         height=700,
         resizable=True,
     )
-    webview.start(icon=str(BASE_DIR/'favicon.ico'), debug=True)
+    webview.start(icon=str(BASE_DIR/'favicon.ico'))
 
     

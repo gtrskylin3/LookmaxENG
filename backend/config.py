@@ -12,11 +12,13 @@ class Settings(BaseSettings):
         env_file=ENV_FILE,
         extra="ignore",
     )
-    PORT: int
-    RELOAD: bool
-    HOST: str
-    EMAIL: str
-    API_URL: str
+    PORT: int = '8000'
+    RELOAD: bool = 'False'
+    HOST: str = '127.0.0.1'
+    EMAIL: str = 'example@example.com'
+    API_URL: str = "https://api.mymemory.translated.net/"
+    API_GEMINI: str | None = None
+    USE_GEMINI: bool = False
 
 class DatabaseSettings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -30,3 +32,5 @@ settings = Settings() # type: ignore
 db_settings = DatabaseSettings()
 
 BASE_URL = f"{settings.HOST}:{settings.PORT}"
+
+
