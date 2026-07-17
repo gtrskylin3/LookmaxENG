@@ -11,6 +11,7 @@ from config import WIDTH, HEIGHT
 from schemes.word import Word
 from aiohttp import ClientSession
 from backend.config import BASE_URL
+from desktop.popup_window.manager import popup
 
 mouse = MouseController()
 
@@ -46,8 +47,14 @@ def ocr_main():
                 "context": None
             }
         response = requests.post(f"http://{BASE_URL}/api/words", json=json)
-        if response.status_code != 200:
-            print(response.content, '\n=================================\n', word)
+        data = response.json()
+        text = data.get('word')
+        global_word_x = left + word.x
+        global_word_y = top + word.y
+
+        translate = data.get('translate')
+        popup.show_popup(text, translate, word.height)
+        
 
 def start_hotkeys():
     keys = ['q', 'й']

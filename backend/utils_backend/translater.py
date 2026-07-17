@@ -45,7 +45,6 @@ async def translate(text: str, from_lang='en', to_lang='ru'):
     try:
         translated = await ts.translate_text(
                 text, 
-                translator='google', 
                 from_language='en', 
                 to_language='ru', 
                 http_client='aiohttp', 
